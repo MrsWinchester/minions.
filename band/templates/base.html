@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Minions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --bg:#f9fafb;          /* page background */
+      --card:#ffffff;        /* card background */
+      --text:#111827;        /* body text */
+      --muted:#6b7280;       /* subtle text */
+      --primary:#005c3a;     /* SA green */
+      --primary2:#0077b6;    /* ocean blue */
+      --accent:#ffbf00;      /* gold */
+      --link:#0b63ce;        /* link colour */
+      --border:#e5e7eb;      /* borders */
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+         background:var(--bg);color:var(--text)}
+    header{background:linear-gradient(90deg,var(--primary),var(--primary2));color:#fff}
+    nav{max-width:960px;margin:0 auto;padding:1rem;display:flex;gap:1rem;flex-wrap:wrap}
+    nav a{color:#fff;text-decoration:none;padding:.35rem .6rem;border-radius:.5rem;opacity:.95}
+    nav a:hover{background:rgba(255,255,255,.14);opacity:1}
+    main.container{max-width:960px;margin:2rem auto;background:var(--card);padding:2rem;
+                   border-radius:16px;box-shadow:0 8px 28px rgba(0,0,0,.08)}
+    h1,h2{color:var(--primary);margin-top:0}
+    a{color:var(--link)}
+    hr{border:0;height:1px;background:var(--border);margin:1.5rem 0}
+    /* tables (Shows) */
+    table{width:100%;border-collapse:collapse;margin-top:1rem}
+    th,td{padding:.6rem;border:1px solid var(--border);text-align:left}
+    thead th{background:#f3f4f6}
+    /* labels */
+    .badge{display:inline-block;padding:.2rem .55rem;border-radius:999px;font-size:.85rem}
+    .badge.available{background:#10b981;color:#052e16} /* green */
+    .badge.soldout{background:#ef4444;color:white}      /* red */
+    /* buttons (if you add any) */
+    .button{background:var(--primary);color:#fff;text-decoration:none;padding:.45rem .9rem;border-radius:.5rem}
+    .button:hover{filter:brightness(1.05)}
+    footer{max-width:960px;margin:2rem auto 3rem;color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'shows' %}">Shows</a>
+      {% if user.is_authenticated %}
+        <span>Hi, {{ user.username }}</span>
+        <a href="{% url 'logout' %}">Logout</a>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Sign up</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    © {{ now|date:"Y" }} The Minions · Durban → Joburg → Cape Town
+  </footer>
+</body>
+</html>
