@@ -3,7 +3,7 @@ Minions_site Capstone
 
 Please mark this repo and commit:
 - Canonical repo: https://github.com/MrsWinchester/minions1  
-- Commit: <SHORT_HASH_HERE>
+- Commit: <cff3f10305f8108ebd1efb273ae73a1f471ea5a9>
 
 py -m venv .venv && ..venv\Scripts\activate
 pip install -r requirements.txt
@@ -87,5 +87,6 @@ minions_site/
 Links in this README are angle-bracketed so they’re clickable on GitHub.
 Docs build verified; modules page lists the app modules.
 Docker run binds 0.0.0.0:8000 → host :8000.
+
 
 
