@@ -1,1 +1,20 @@
-﻿https://github.com/MrsWinchester/minions1
+CAPSTONE SUBMISSION POINTER (L3T10 – Capstone)
+
+Please mark this repo for the final, up-to-date submission:
+https://github.com/MrsWinchester/minions1
+
+What to open there:
+- Django project root: `manage.py` at repo root
+- App: `band/`
+- Project: `minions_site/`
+- Docs (Sphinx HTML): `docs/build/html/index.html`  (also see `modules.html`)
+- Dockerfile: `Dockerfile`
+- Setup: `requirements.txt`, `.env` (example in README)
+
+How to run (quick):
+py -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+py manage.py migrate
+py manage.py runserver
+→ http://127.0.0.1:8000/
