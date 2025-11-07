@@ -1,7 +1,24 @@
 Minions_site Capstone
 ## How I completed the task (process & decisions)
 
-The canonical, up-to-date repo is 👉 https://github.com/MrsWinchester/minions1
+Please mark this repo and commit:
+- Canonical repo: https://github.com/MrsWinchester/minions1  
+- Commit: <SHORT_HASH_HERE>
+
+py -m venv .venv && ..venv\Scripts\activate
+pip install -r requirements.txt
+py manage.py migrate
+py manage.py runserver
+
+Visit http://127.0.0.1:8000/
+
+**Project entry points in _minions1_:**
+- `manage.py` (repo root)
+- `band/`, `minions_site/`
+- Docs HTML: `docs/build/html/index.html` (see also `modules.html`)
+- `Dockerfile`, `requirements.txt`
+
+Quick run:
 
 **Goal:** Build a small Django site (`minions_site`) with a `band` app, document it with Sphinx, and provide Docker support.
 
@@ -37,7 +54,7 @@ py manage.py migrate
 py manage.py runserver
 
 Open http://127.0.0.1:8000 (or http://localhost:8000
-) — the home page lists upcoming shows.
+— The home page lists upcoming shows.
 
 4) **Sphinx documentation**
    - Enabled `autodoc` and used `sphinx-apidoc` to generate RST stubs for `band` and `minions_site`.
@@ -70,4 +87,5 @@ minions_site/
 Links in this README are angle-bracketed so they’re clickable on GitHub.
 Docs build verified; modules page lists the app modules.
 Docker run binds 0.0.0.0:8000 → host :8000.
+
 
