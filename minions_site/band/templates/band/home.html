@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+  <h1 class="title">The Minions</h1>
+  <p class="tagline">
+    Johannesburg-born afro-fusion band blending SA rhythms with modern rock.
+  </p>
+
+  <p>
+    New single “Yellow Overalls” out soon. Catch us live:
+    <a href="{% url 'shows' %}">see all shows</a>.
+  </p>
+
+  <hr>
+
+  <h2>Next up</h2>
+  {% if upcoming %}
+    <ul>
+      {% for s in upcoming %}
+        <li>
+          <strong>{{ s.date|date:"D, j M Y" }}</strong> —
+          {{ s.title }} @ {{ s.venue }}, {{ s.city }}
+          {% if s.is_sold_out %}
+            <span class="badge soldout">Sold out</span>
+          {% else %}
+            <span class="badge available">Tickets available</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <p><a class="button" href="{% url 'shows' %}">View all shows</a></p>
+  {% else %}
+    <p>No upcoming gigs yet—check back soon.</p>
+  {% endif %}
+</section>
+{% endblock %}

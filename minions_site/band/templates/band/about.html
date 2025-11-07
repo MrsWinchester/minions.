@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+  <h1>About The Minions</h1>
+  <p>
+    Melding the soulful echoes of afro-fusion with the raw energy of modern rock, 
+    The Minions are a sonic force hailing from the heart of Johannesburg.
+    Their music is an electrifying journey through a landscape of powerful
+    rhythms and unfiltered storytelling, proving that sometimes, the biggest
+    sounds come from the most unlikely heroes.
+  </p>
+
+  <h2>Band Members</h2>
+  {% if members %}
+    <ul>
+      {% for m in members %}
+        <li><strong>{{ m.name }}</strong> — {{ m.role }}
+          {% if m.bio %}<br><small>{{ m.bio }}</small>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Band members coming soon.</p>
+  {% endif %}
+</section>
+{% endblock %}
