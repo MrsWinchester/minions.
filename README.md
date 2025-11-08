@@ -32,6 +32,12 @@ py manage.py runserver
 
 Open http://127.0.0.1:8000 (or http://localhost:8000) to see the homepage with upcoming shows
 
+## Configuration & .env
+Secrets loaded via python-dotenv in minions_site/settings.py. Example:
+SECRET_KEY=replace_me
+DEBUG=True
+ALLOWED_HOSTS=*
+
 ## Sphinx documentation
 Autodoc is enabled; RST stubs were generated for band and minions_site.
 Build HTML:
@@ -54,18 +60,11 @@ Project minions_site, app band.
 Models: BandMember (name, role), Show (date, title, venue, city, price, is_sold_out).
 Views: home, about, ShowList (paginated), SignUp (Django auth).
 Templates for home/about/shows/registration; “Sold out” badge styling.
+2. Docs
+Used sphinx-apidoc; built and committed HTML for easy review.
 
-2. Configuration & .env
-Secrets loaded via python-dotenv in minions_site/settings.py.
-Example .env:
-SECRET_KEY=replace_me
-DEBUG=True
-ALLOWED_HOSTS=*
 
-3. Docs
-sphinx-apidoc used; HTML built and committed for easy review.
-
-4. Repository layout
+4. Repository layout (repo root)
 minions1/
 ├─ manage.py
 ├─ band/                 # the app
@@ -85,5 +84,6 @@ minions1/
 Links are angle-bracketed for clickability on GitHub.
 Docs build verified; Modules page lists band.models & band.views.
 Docker runs on 0.0.0.0:8000 in the container, mapped to host :8000.
+
 
 
