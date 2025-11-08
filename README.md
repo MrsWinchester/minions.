@@ -66,18 +66,24 @@ ALLOWED_HOSTS=*
 sphinx-apidoc used; HTML built and committed for easy review.
 
 4. Repository layout
-minions_site/
+minions1/
 ├─ manage.py
-├─ Dockerfile
-├─ band/                  # app (models, views, urls, templates/…)
+├─ band/                 # the app
+├─ minions_site/         # the project package (ONLY one)
+│  ├─ __init__.py
+│  ├─ settings.py
+│  ├─ urls.py
+│  ├─ asgi.py
+│  └─ wsgi.py
 ├─ docs/
-│  ├─ source/             # Sphinx sources (conf.py, *.rst)
-│  └─ build/html/         # Generated HTML (index.html, modules.html)
-├─ README.md
-└─ requirements.txt
+│  └─ build/html/...
+├─ Dockerfile
+├─ requirements.txt
+└─ README.md
 
 5. Notes / verification
 Links are angle-bracketed for clickability on GitHub.
 Docs build verified; Modules page lists band.models & band.views.
 Docker runs on 0.0.0.0:8000 in the container, mapped to host :8000.
+
 
