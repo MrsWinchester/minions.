@@ -1,13 +1,13 @@
 # Capstone Project: Minions1
 
-Django project: **minions_site** package with **band** app.  
-Includes Sphinx docs, optional Docker image, and a minimal seed script.
+Django project: **minions_site** (project) with **band** (app).  
+Includes Sphinx docs, optional Docker image, and a tiny seed snippet.
 
 ---
 
 ## Quickstart (Windows, PowerShell)
 
-'''powershell
+```powershell
 # Clone and enter
 git clone https://github.com/MrsWinchester/minions1
 cd minions1
@@ -20,75 +20,89 @@ py -m venv .venv
 py -m pip install --upgrade pip
 py -m pip install -r requirements.txt
 
-# Migrate DB and create a superuser
+Create a .env
+The project loads this via python-dotenv in minions_site/settings.py.
+SECRET_KEY=replace_me
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1,localhost
+
+Migrate, create admin, run
 py manage.py migrate
 py manage.py createsuperuser
-
-# Run the server
 py manage.py runserver
 
 Open: http://127.0.0.1:8000/
 
-# 3 quick things in Django Admin (to make pages show real data)
-Go to /admin and sign in.
-Band members: add a few members (name + role + optional bio).
-These appear on the About page.
-Shows: add one or two Show entries (title, venue, city, date, price, sold_out).
-These appear on the Shows page.
-
-Tip: If you prefer a one-shot seed, run:
-'''Powershell
+(Optional) Seed some data quickly
 py manage.py shell
 
-then paste:
-
+from datetime import date
 from band.models import BandMember, Show
-BandMember.objects.get_or_create(name="Minnie", role="Vocals")
-BandMember.objects.get_or_create(name="Kevin", role="Guitar")
+
+BandMember.objects.get_or_create(name="Minnie",  role="Vocals")
+BandMember.objects.get_or_create(name="Kevin",   role="Guitar")
 BandMember.objects.get_or_create(name="Natasha", role="Drums")
-Show.objects.get_or_create(title="KZN Live", venue="Town Hall", city="Durban")
+
+Show.objects.get_or_create(
+    title="KZN Live",
+    venue="Town Hall",
+    city="Durban",
+    date=date(2025, 11, 20),
+    price=0,
+    is_sold_out=False,
+)
 exit()
 
-# Build the Sphinx Documentation
-The project already commits built HTML in docs/build/html.
-If you want to rebuild locally:
-# Rebuild HTML to docs/build/html
+Or add items in /admin:
+• Band members → show on the About page
+• Shows → show on the Shows page
+
+2) Sphinx Documentation
+
+Built HTML is committed under docs/build/html for reviewers.
+Rebuild locally (optional):
+# Clean & rebuild to docs/build/html
+.\docs\make.bat clean
+.\docs\make.bat html
+
+# Or with pure Python:
 py -m sphinx -b html docs/source docs/build/html
 
-# Open the landing page locally
+# Open the landing page
 start docs\build\html\index.html
 
-# Run with Docker (optional)
-'''powershell
-# Build
+3) Run with Docker (optional)
+# Build the image
 docker build -t minions1 .
 
-# Run (port 8000)
-docker run -p 8000:8000 minions1
+# Run (use your .env for SECRET_KEY/ALLOWED_HOSTS)
+docker run --rm -p 8000:8000 --env-file .\.env minions1
+# Browse: http://localhost:8000/
 
-Visit: http://localhost:8000/
+4) Project Structure (key bits)
+minions1/
+├─ manage.py
+├─ band/                # app: models, views, templates
+├─ minions_site/        # project: settings, urls, asgi/wsgi
+├─ docs/
+│  ├─ source/           # Sphinx sources (conf.py, *.rst)
+│  └─ build/
+│     └─ html/          # Built documentation (index.html, modules.html, ...)
+├─ Dockerfile
+├─ requirements.txt
+├─ .env                 # not committed (example above)
+└─ README.md
 
-If you need to run migrations inside the container:
+5) Troubleshooting
 
-'''powershell
-docker run -it --rm -p 8000:8000 minions1 bash
-python manage.py migrate
-python manage.py runserver 0.0.0.0:8000
+ALLOWED_HOSTS error: ensure .env has
+ALLOWED_HOSTS=127.0.0.1,localhost and DEBUG=True for local dev.
 
-# Project Structure (key bits)
-band/                # app: models, views, templates
-minions_site/        # project: settings, urls, asgi/wsgi
-docs/                # Sphinx docs (source + build/html)
-Dockerfile
-manage.py
-requirements.txt
+Docs complain about dotenv:
+py -m pip install python-dotenv sphinx-autodoc-typehints
 
-# Troubleshooting
-If docs complain about dotenv, just install it:
-'''powershell
-py -m pip install python-dotenv
-
-If py isn’t recognized, try python instead.
+py not found on your system: use python instead of py.
 
 ---
+
 
