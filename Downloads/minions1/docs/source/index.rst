@@ -1,14 +1,16 @@
-Welcome to minions_site’s documentation!
-=======================================
+minions_site documentation
+==========================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+
    modules
 
 Indices and tables
 ==================
+
 
 * :ref:`genindex`
 * :ref:`modindex`
