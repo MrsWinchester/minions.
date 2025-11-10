@@ -1,7 +1,9 @@
 # Capstone Project: Minions1
 
 **Canonical repo:** https://github.com/MrsWinchester/minions1
+
 **Commit:** 558d30c
+
 **Permalink:** https://github.com/MrsWinchester/minions1/tree/558d30c
 
 Django project: **minions_site** (project) with **band** (app).  
@@ -108,6 +110,7 @@ py -m pip install python-dotenv sphinx-autodoc-typehints
 py not found on your system: use python instead of py.
 
 ---
+
 
 
 
