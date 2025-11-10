@@ -37,4 +37,7 @@ Thumbs.db
 node_modules/
 
 # ── Sphinx
-# IMPORTANT: do NOT ignore docs/_build for this task (we want built docs in git)
+# Ignore everything in docs/build, but allow the HTML output
+docs/build/*
+!docs/build/html/
+!docs/build/html/**/*
