@@ -1,14 +1,21 @@
-# Capstone Project: Minions1
+# Minions1
 
-**Canonical repo:** https://github.com/MrsWinchester/minions1
+A Django web application developed as a capstone project for a fictional South African band, The Minions.
 
-**Commit:** 558d30c
+## Overview
+This project demonstrates core Django development concepts, including project/app structure, URL routing, views, templates, admin functionality, and database-backed content. It also includes Sphinx documentation and optional Docker support.
 
-**Permalink:** https://github.com/MrsWinchester/minions1/tree/558d30c
+Django web application with templates, routing, admin setup, Sphinx documentation, and Docker support.
 
-Django project: **minions_site** (project) with **band** (app).  
-Includes Sphinx docs, optional Docker image, and a tiny seed snippet.
-
+## Features
+- Home, About, and Shows pages
+- Django project/app structure
+- Admin interface for managing content
+- Template-based page rendering
+- Database-backed models for band members and shows
+- Sphinx technical documentation
+- Optional Docker setup
+  
 ---
 
 ## Quickstart (Windows, PowerShell)
@@ -104,7 +111,7 @@ minions1/
 ALLOWED_HOSTS error: ensure .env has
 ALLOWED_HOSTS=127.0.0.1,localhost and DEBUG=True for local dev.
 
-Docs complain about dotenv:
+If documentation build issues occur related to `python-dotenv`, install the required package with:
 py -m pip install python-dotenv sphinx-autodoc-typehints
 
 py not found on your system: use python instead of py.
