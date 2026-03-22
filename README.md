@@ -1,6 +1,6 @@
-# Minions.
+# Minions
 
-A Django web application developed as a capstone project for a fictional South African band, The Minions.
+A Django web application developed as a capstone project for a fictional South African band, The Minions
 
 ## Overview
 This project demonstrates core Django development concepts, including project/app structure, URL routing, views, templates, admin functionality, and database-backed content. It also includes Sphinx documentation and optional Docker support.
@@ -22,7 +22,7 @@ Django web application with templates, routing, admin setup, Sphinx documentatio
 
 ```powershell
 # Clone and enter
-git clone https://github.com/MrsWinchester/minions.
+git clone https://github.com/MrsWinchester/minions
 cd minions.
 
 # Create & activate venv
@@ -86,14 +86,14 @@ start docs\build\html\index.html
 
 3) Run with Docker (optional)
 # Build the image
-docker build -t minions1 .
+docker build -t minions .
 
 # Run (use your .env for SECRET_KEY/ALLOWED_HOSTS)
-docker run --rm -p 8000:8000 --env-file .\.env minions.
+docker run --rm -p 8000:8000 --env-file .\.env minions
 # Browse: http://localhost:8000/
 
 4) Project Structure (key bits)
-minions1/
+minions/
 ├─ manage.py
 ├─ band/                # app: models, views, templates
 ├─ minions_site/        # project: settings, urls, asgi/wsgi
