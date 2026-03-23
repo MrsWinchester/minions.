@@ -14,11 +14,22 @@ This project demonstrates core Django development concepts, including project/ap
 - Sphinx technical documentation
 - Optional Docker setup
 
+## Screenshots
+
+**Home**
+![Homepage](screenshots/homepage.png)
+
+**About Page**
+![About Page](screenshots/about-page.png)
+
+**Shows Page**
+![Shows Page](screenshots/shows-page.png)
+
 ---
 
-## Quickstart (Windows, PowerShell)
+**Quickstart (Windows, PowerShell)**
 
-### 1. Clone the repository
+1. Clone the repository
 ```powershell
 git clone https://github.com/MrsWinchester/minions
 cd minions
