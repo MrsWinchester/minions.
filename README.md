@@ -17,13 +17,13 @@ This project demonstrates core Django development concepts, including project/ap
 ## Screenshots
 
 **Home**
-![Homepage](screenshots/homepage.png)
+![Homepage](screenshots/Homepage_Minions.png)
 
 **About Page**
-![About Page](screenshots/about-page.png)
+![About Page](screenshots/About_Minions.png)
 
 **Shows Page**
-![Shows Page](screenshots/shows-page.png)
+![Shows Page](screenshots/Shows_Minions.png)
 
 ---
 
